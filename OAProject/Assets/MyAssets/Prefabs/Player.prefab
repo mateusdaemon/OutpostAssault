@@ -308,8 +308,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8690123435258026944, guid: 7e43d1cb0e4729b40a511706a281c2d1, type: 3}
   gunPosition: {fileID: 8030010977622288887}
-  shootInterval: 2
-  shootSpeed: 50
+  shootInterval: 1
+  shootSpeed: 80
 --- !u!114 &7016149928182263716
 MonoBehaviour:
   m_ObjectHideFlags: 0
