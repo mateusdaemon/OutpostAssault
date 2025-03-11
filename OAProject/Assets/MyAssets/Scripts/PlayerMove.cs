@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        rb.linearVelocity = new Vector3(direction.x, rb.linearVelocity.y, direction.y) * speed;
+        // rb.linearVelocity = new Vector3(direction.x, rb.linearVelocity.y, direction.y) * speed;
+        rb.AddForce(new Vector3(direction.x, 0, direction.y) * speed);
     }
 }
