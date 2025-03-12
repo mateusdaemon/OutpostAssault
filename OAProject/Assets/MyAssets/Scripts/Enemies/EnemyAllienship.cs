@@ -17,4 +17,13 @@ public class EnemyAllienship : Enemy
         Vector3 zigzag = transform.right * Mathf.Sin(Time.time * zigzagSpeed) * zigzagAmount;
         transform.position += (direction + zigzag) * speed * Time.deltaTime;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == baseTarget.gameObject)
+        {
+            GameManager.Instance.EnemyReachBase();
+            Destroy(gameObject);
+        }
+    }
 }

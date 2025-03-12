@@ -18,4 +18,14 @@ public class PlayerInput : MonoBehaviour
         Attack = inputActions.Player.Attack.ReadValue<float>();
         MoveDirection = inputActions.Player.Move.ReadValue<Vector2>();
     }
+
+    private void OnDisable()
+    {
+        inputActions.Disable();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Enable();
+    }
 }

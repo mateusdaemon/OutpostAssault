@@ -7,17 +7,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform baseTarget;
     [SerializeField] private Collider spawnArea;
     [SerializeField] private float spawnInterval = 3f;
-
-    private void Start()
-    {
-        StartCoroutine(SpawnEnemies());
-    }
+    [SerializeField] private bool activeSpawn = false;
 
     private IEnumerator SpawnEnemies()
     {
-        while (true)
+        while (activeSpawn)
         {
             yield return new WaitForSeconds(spawnInterval);
+            if (!activeSpawn) break; 
             SpawnEnemy();
         }
     }
@@ -41,5 +38,17 @@ public class EnemySpawner : MonoBehaviour
             bounds.center.y,
             Random.Range(bounds.min.z, bounds.max.z)
         );
+    }
+
+    public void StopSpawn()
+    {
+        activeSpawn = false;
+        StopCoroutine(SpawnEnemies());
+    }
+
+    public void ActivateSpawn()
+    {
+        activeSpawn = true;
+        StartCoroutine(SpawnEnemies());
     }
 }
