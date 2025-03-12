@@ -3543,6 +3543,7 @@ GameObject:
   - component: {fileID: 8136038787541096345}
   - component: {fileID: 3093928586459137403}
   - component: {fileID: 910386310957357716}
+  - component: {fileID: 4172457357683602829}
   m_Layer: 0
   m_Name: AstronaultProto
   m_TagString: Untagged
@@ -3623,7 +3624,7 @@ Rigidbody:
   m_GameObject: {fileID: 7957642907617021745}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -3682,6 +3683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  playerAnim: {fileID: 4172457357683602829}
 --- !u!114 &3093928586459137403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3716,6 +3718,19 @@ MonoBehaviour:
   gunPosition: {fileID: 7513196000057988716}
   shootInterval: 1
   shootSpeed: 80
+--- !u!114 &4172457357683602829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957642907617021745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3384294b7343ed47a90020063229f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4789034897821621349}
 --- !u!1 &8027467346471165025
 GameObject:
   m_ObjectHideFlags: 0
