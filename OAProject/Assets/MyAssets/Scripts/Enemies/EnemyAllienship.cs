@@ -18,12 +18,17 @@ public class EnemyAllienship : Enemy
         transform.position += (direction + zigzag) * speed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public override void TakeDamage(float damage)
     {
-        if (collision.gameObject == baseTarget.gameObject)
+        life -= damage;
+        if (life <= 0)
         {
-            GameManager.Instance.EnemyReachBase();
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    public override void Die()
+    {
+        Destroy(gameObject);
     }
 }

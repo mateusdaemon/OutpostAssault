@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerShooter playerShooter;
     [SerializeField] private PlayerOrientation playerOrientation;
 
-
     // Update is called once per frame
     void Update()
     {

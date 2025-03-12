@@ -42,12 +42,14 @@ public class EnemySpawner : MonoBehaviour
 
     public void StopSpawn()
     {
+        if (!activeSpawn) return;
         activeSpawn = false;
         StopCoroutine(SpawnEnemies());
     }
 
     public void ActivateSpawn()
     {
+        if (activeSpawn) return;
         activeSpawn = true;
         StartCoroutine(SpawnEnemies());
     }
