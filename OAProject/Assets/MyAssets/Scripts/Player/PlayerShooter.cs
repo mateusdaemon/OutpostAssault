@@ -24,4 +24,9 @@ public class PlayerShooter : MonoBehaviour
     {
         canShoot = true;
     }
+
+    public void SetShootInterval(float interval)
+    {
+        shootInterval = interval;
+    }
 }

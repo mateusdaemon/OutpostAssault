@@ -4,6 +4,7 @@ public abstract class Enemy : MonoBehaviour, IRunBase, ITakeDamage
 {
     [SerializeField] protected float life;
     [SerializeField] protected float speed;
+    [SerializeField] protected float xpReward;
     protected Transform baseTarget;
 
     public void SetBaseTarget(Transform target)

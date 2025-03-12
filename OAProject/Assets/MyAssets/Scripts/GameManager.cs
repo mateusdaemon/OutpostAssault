@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     private EnemySpawner enemySpawner;
     private Transform playerSpawnPosition;
 
+    [SerializeField] private PlayerStats playerStats;
+
+    private int upgradePoints = 0;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -69,5 +73,47 @@ public class GameManager : MonoBehaviour
         playerReference.transform.position = playerSpawnPosition.position;
         playerReference.gameObject.SetActive(true);
         enemySpawner.ActivateSpawn();
+    }
+
+    internal void GrantUpgradePoint()
+    {
+        upgradePoints++;
+        HudManager.Instance.UpdatePointsAvailable(upgradePoints);
+        HudManager.Instance.ShowUpgradeUI();
+    }
+
+    public void AddXP(float amount)
+    {
+        playerStats.AddXP(amount);
+        HudManager.Instance.UpdateXpAmount(playerStats.currentXP, playerStats.xpToNextLevel);
+    }
+
+    public void UpgradeAttribute(string attribute)
+    {
+        if (upgradePoints <= 0) return;
+
+        switch (attribute)
+        {
+            case "AttackSpeed":
+                playerStats.attackSpeed += 1f;
+                HudManager.Instance.UpdateAtkSpeed(playerStats.attackSpeed);
+                break;
+            case "BulletDamage":
+                playerStats.bulletDamage += 3f;
+                HudManager.Instance.UpdateAtkDamage(playerStats.bulletDamage);
+                break;
+            case "SpecialDamage":
+                playerStats.specialDuration += 2f;
+                HudManager.Instance.UpdateSpecialDuration(playerStats.specialDuration);
+                break;
+        }
+
+        upgradePoints--;
+        HudManager.Instance.UpdatePointsAvailable(upgradePoints);
+
+        if (upgradePoints <= 0 )
+        {
+            HudManager.Instance.HideUpgradeUI();
+        }
     }
 }

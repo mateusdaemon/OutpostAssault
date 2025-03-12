@@ -17,8 +17,8 @@ public class Bullet : MonoBehaviour
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null)
         {
-            Debug.Log("Hit enemy");
             enemy.TakeDamage(3);
+            Destroy(gameObject);
         }
     }
 }

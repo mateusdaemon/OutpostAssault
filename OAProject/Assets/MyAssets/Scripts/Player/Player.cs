@@ -18,5 +18,10 @@ public class Player : MonoBehaviour
             playerShooter.Shoot(playerOrientation.LookDirection);
         }
     }
+
+    public void LevelUp()
+    {
+
+    }
 }
  

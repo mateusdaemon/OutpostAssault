@@ -24,6 +24,7 @@ public class EnemySpaceship : Enemy
 
     public override void Die()
     {
+        GameManager.Instance.AddXP(xpReward);
         Destroy(gameObject);
     }
 }
