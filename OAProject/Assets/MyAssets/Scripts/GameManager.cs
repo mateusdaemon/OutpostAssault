@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
+
     private int baseLives = 1;
     private Player playerReference;
     private EnemySpawner enemySpawner;
@@ -32,11 +33,6 @@ public class GameManager : MonoBehaviour
         playerSpawnPosition = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
     }
 
-
-    void Update()
-    {
-        
-    }
 
     public void EnemyReachBase()
     {

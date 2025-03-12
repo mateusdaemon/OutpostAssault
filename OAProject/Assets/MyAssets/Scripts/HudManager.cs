@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class HudManager : MonoBehaviour
 {
-    public static HudManager Instance;
+    public static HudManager Instance { get; private set; }
 
-    [Header("Gameplay stuff")]
+    [Header("Gameplay UI")]
     [SerializeField] GameObject gameplayPanel;
     [SerializeField] private TextMeshProUGUI lifeAmount;
 
-    [Header("Gameover stuff")]
+    [Header("Gameover UI")]
     [SerializeField] GameObject gameoverPanel;
 
     private void Awake()
