@@ -46,12 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4735580441640751268, guid: 42da4c4d8f1afad4a8f9b43533fef4b9, type: 3}
+  - {fileID: -8257509985972802007, guid: 06332174276e5234f870f17cf5d63ffb, type: 3}
   - {fileID: 1146176128488073772, guid: f1d8af6ad2cf7424a9c6ea75be995777, type: 3}
-  - {fileID: 1496034754400306131, guid: fb8a3b77b033bf542a5ffd4eaeb29b9f, type: 3}
+  - {fileID: 8520570997414502169, guid: 14fc1df836a72ac4793d8c59bb9a8790, type: 3}
   baseTarget: {fileID: 0}
   spawnArea: {fileID: 6975950021223147787}
   spawnInterval: 3
+  activeSpawn: 0
 --- !u!65 &6975950021223147787
 BoxCollider:
   m_ObjectHideFlags: 0
