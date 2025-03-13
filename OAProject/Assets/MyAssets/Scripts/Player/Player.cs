@@ -23,5 +23,10 @@ public class Player : MonoBehaviour
     {
 
     }
+
+    public void UpdatePlayerAtt(PlayerStats playerStats)
+    {
+        playerShooter.SetShootInterval(playerStats.attackSpeed);
+    }
 }
  

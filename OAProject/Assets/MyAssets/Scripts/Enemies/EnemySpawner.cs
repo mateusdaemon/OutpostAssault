@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Enemy[] enemyPrefabs;
     [SerializeField] private Transform baseTarget;
     [SerializeField] private Collider spawnArea;
-    [SerializeField] private float spawnInterval = 3f;
+    [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private bool activeSpawn = false;
 
     private IEnumerator SpawnEnemies()
@@ -52,5 +52,16 @@ public class EnemySpawner : MonoBehaviour
         if (activeSpawn) return;
         activeSpawn = true;
         StartCoroutine(SpawnEnemies());
+    }
+
+    public void SetSpawnInterval(float interval)
+    {
+        spawnInterval = interval;
+    }
+
+    internal void SetSpawnIntervalByLevel(int level)
+    {
+        float newInterval = Mathf.Max(2f * (1f - (level / 10f)), 0.5f);
+        spawnInterval = newInterval;
     }
 }

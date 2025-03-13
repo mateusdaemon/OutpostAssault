@@ -17,5 +17,8 @@ MonoBehaviour:
   currentXP: 0
   xpToNextLevel: 100
   attackSpeed: 1
-  bulletDamage: 10
+  maxAttackSpeed: 4
+  bulletDamage: 3
+  maxBulletDamage: 12
   specialDuration: 5
+  maxSpecialDuration: 11

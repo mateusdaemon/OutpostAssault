@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private EnemySpawner enemySpawner;
     private Transform playerSpawnPosition;
 
-    [SerializeField] private PlayerStats playerStats;
+    public PlayerStats playerStats;
 
     private int upgradePoints = 0;
 
@@ -75,11 +75,14 @@ public class GameManager : MonoBehaviour
         enemySpawner.ActivateSpawn();
     }
 
-    internal void GrantUpgradePoint()
+    public void PlayerLevelUp()
     {
         upgradePoints++;
+
         HudManager.Instance.UpdatePointsAvailable(upgradePoints);
         HudManager.Instance.ShowUpgradeUI();
+        
+        enemySpawner.SetSpawnIntervalByLevel(playerStats.level);
     }
 
     public void AddXP(float amount)
@@ -115,5 +118,7 @@ public class GameManager : MonoBehaviour
         {
             HudManager.Instance.HideUpgradeUI();
         }
+
+        playerReference.UpdatePlayerAtt(playerStats);
     }
 }

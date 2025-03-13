@@ -13,6 +13,7 @@ public class HudManager : MonoBehaviour
 
     [Header("Upgrade Hability")]
     [SerializeField] private GameObject upgradePanel;
+    [SerializeField] private TextMeshProUGUI playerLvlTxt;
     [SerializeField] private TextMeshProUGUI xpAmountTxt;
     [SerializeField] private TextMeshProUGUI ptsAmountTxt;
     [SerializeField] private TextMeshProUGUI atkSpeedTxt;
@@ -38,13 +39,6 @@ public class HudManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        attackSpeedButton.onClick.AddListener(() => GameManager.Instance.UpgradeAttribute("AttackSpeed"));
-        bulletDamageButton.onClick.AddListener(() => GameManager.Instance.UpgradeAttribute("BulletDamage"));
-        specialDamageButton.onClick.AddListener(() => GameManager.Instance.UpgradeAttribute("SpecialDamage"));
-    }
-
     public void SetBaseLife(int baseLives)
     {
         lifeAmount.text = baseLives.ToString();
@@ -65,6 +59,29 @@ public class HudManager : MonoBehaviour
     public void ShowUpgradeUI()
     {
         upgradePanel.SetActive(true);
+        CheckEnableUpgrades();
+    }
+
+    private void CheckEnableUpgrades()
+    {
+        bulletDamageButton.gameObject.SetActive(true);
+        attackSpeedButton.gameObject.SetActive(true);
+        specialDamageButton.gameObject.SetActive(true);
+
+        if (GameManager.Instance.playerStats.bulletDamage >= GameManager.Instance.playerStats.maxBulletDamage)
+        {
+            bulletDamageButton.gameObject.SetActive(false);
+        }
+
+        if (GameManager.Instance.playerStats.attackSpeed >= GameManager.Instance.playerStats.maxAttackSpeed)
+        {
+            attackSpeedButton.gameObject.SetActive(false);
+        }
+
+        if (GameManager.Instance.playerStats.specialDuration >= GameManager.Instance.playerStats.maxSpecialDuration)
+        {
+            specialDamageButton.gameObject.SetActive(false);
+        }
     }
 
     public void HideUpgradeUI()
@@ -92,8 +109,13 @@ public class HudManager : MonoBehaviour
         specialTxt.text = "Special Duration: " + amount.ToString();
     }
 
-    internal void UpdatePointsAvailable(int upgradePoints)
+    public void UpdatePointsAvailable(int upgradePoints)
     {
-        xpAmountTxt.text += upgradePoints.ToString();
+        ptsAmountTxt.text = "Points: " + upgradePoints.ToString();
+    }
+
+    public void UpdatePlayerLevel(int level)
+    {
+        playerLvlTxt.text = "LEVEL " + level.ToString();
     }
 }

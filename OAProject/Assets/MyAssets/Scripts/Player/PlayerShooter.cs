@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Bullet bulletPrefab;
     [SerializeField] private Transform gunPosition;
     [SerializeField] private float shootInterval;
     [SerializeField] private float shootSpeed;
@@ -13,7 +13,8 @@ public class PlayerShooter : MonoBehaviour
         if (canShoot)
         {
             canShoot = false;
-            GameObject bullet = Instantiate(bulletPrefab, gunPosition.position, bulletPrefab.transform.rotation);
+            Bullet bullet = Instantiate(bulletPrefab, gunPosition.position, bulletPrefab.transform.rotation);
+            bullet.SetDamage(GameManager.Instance.playerStats.bulletDamage);
             bullet.GetComponent<Rigidbody>().linearVelocity = direction * shootSpeed;
             PlayerEvents.TriggerShoot();
             Invoke("RestoreShoot", shootInterval);
@@ -27,6 +28,6 @@ public class PlayerShooter : MonoBehaviour
 
     public void SetShootInterval(float interval)
     {
-        shootInterval = interval;
+        shootInterval = 1 / interval;
     }
 }

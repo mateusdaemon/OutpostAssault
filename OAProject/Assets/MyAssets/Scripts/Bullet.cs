@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private float damage = 0;
+
     private void Start()
     {
         Invoke("DestroyMyself", 5.0f);
@@ -17,8 +19,13 @@ public class Bullet : MonoBehaviour
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.TakeDamage(3);
+            enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
+    }
+
+    public void SetDamage(float newDamage)
+    {
+        damage = newDamage;
     }
 }
