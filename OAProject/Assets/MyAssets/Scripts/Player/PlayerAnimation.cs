@@ -21,8 +21,8 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetFloat("Speed", speed);
     }
 
-    private void SetShotTrigger()
+    private void SetShotTrigger(bool shoot)
     {
-        animator.SetTrigger("Shoot");
+        animator.SetBool("Shoot", shoot);
     }
 }

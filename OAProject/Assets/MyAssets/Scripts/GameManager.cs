@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private int baseLives = 1;
+    private int baseLives = 5;
     private Player playerReference;
     private EnemySpawner enemySpawner;
     private Transform playerSpawnPosition;

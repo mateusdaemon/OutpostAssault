@@ -9,19 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerShooter playerShooter;
     [SerializeField] private PlayerOrientation playerOrientation;
 
-    void Update()
+    void FixedUpdate()
     {
         playerMove.Move(playerInput.MoveDirection);
-
-        if (playerInput.Attack != 0)
-        {
-            playerShooter.Shoot(playerOrientation.LookDirection);
-        }
-    }
-
-    public void LevelUp()
-    {
-
+        playerShooter.Shoot(playerOrientation.LookDirection, playerInput.Attack);
     }
 
     public void UpdatePlayerAtt(PlayerStats playerStats)
