@@ -16,11 +16,17 @@ public class PlayerShooter : MonoBehaviour
         if (canShoot && wantsShoot != 0)
         {
             canShoot = false;
-            Bullet bullet = Instantiate(bulletPrefab, gunPosition.position, bulletPrefab.transform.rotation);
+
+            Bullet bullet = Instantiate(bulletPrefab, gunPosition.position, Quaternion.identity);
+
+            Vector3 bulletDir = direction.normalized;
+            bullet.transform.rotation = Quaternion.LookRotation(bulletDir) * Quaternion.Euler(90, 0, 0);
             bullet.SetDamage(GameManager.Instance.playerStats.bulletDamage);
-            bullet.GetComponent<Rigidbody>().linearVelocity = direction * shootSpeed;
+            bullet.GetComponent<Rigidbody>().linearVelocity = bulletDir * shootSpeed;
+
             PlayerEvents.TriggerShoot();
-            Invoke("RestoreShoot", shootInterval);
+
+            Invoke(nameof(RestoreShoot), shootInterval);
         }
     }
 
