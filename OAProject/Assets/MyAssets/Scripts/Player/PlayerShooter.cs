@@ -19,22 +19,13 @@ public class PlayerShooter : MonoBehaviour
             Bullet bullet = Instantiate(bulletPrefab, gunPosition.position, bulletPrefab.transform.rotation);
             bullet.SetDamage(GameManager.Instance.playerStats.bulletDamage);
             bullet.GetComponent<Rigidbody>().linearVelocity = direction * shootSpeed;
-            PlayerEvents.TriggerShoot(true);
+            PlayerEvents.TriggerShoot();
             Invoke("RestoreShoot", shootInterval);
         }
     }
 
-    public void StopShoot()
-    {
-        PlayerEvents.TriggerShoot(false);
-    }
-
     private void RestoreShoot()
     {
-        if (wantsShoot == 0)
-        {
-            StopShoot();
-        }
         canShoot = true;
     }
 

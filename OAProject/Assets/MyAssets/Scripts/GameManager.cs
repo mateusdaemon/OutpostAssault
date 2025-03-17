@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         HudManager.Instance.SetBaseLife(baseLives);
         playerReference = FindFirstObjectByType<Player>();
         enemySpawner = FindFirstObjectByType<EnemySpawner>();
-        enemySpawner.ActivateSpawn();
+        enemySpawner.ActivateSpawn();   
         playerSpawnPosition = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
     }
 

@@ -22,8 +22,8 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetFloat("Forward", moveY);
     }
 
-    private void SetShotTrigger(bool shoot)
+    private void SetShotTrigger()
     {
-        animator.SetBool("Shoot", shoot);
+        animator.SetTrigger("Shoot");
     }
 }
