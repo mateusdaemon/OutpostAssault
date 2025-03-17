@@ -1,23 +1,32 @@
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class PlayerMove : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField] private float speed;
-    [SerializeField] private PlayerAnimation playerAnim;
+    [SerializeField] private PlayerOrientation playerOrientation;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    public void Move(Vector2 direction)
+    public void Move(Vector2 input)
     {
-        Vector3 movement = new Vector3(direction.x, 0, direction.y) * speed;
-        rb.AddForce(movement);
-        
-        // Normaliza o valor entre 0 e 1 e dispara o evento
-        float movementMagnitude = movement.magnitude / speed;
-        PlayerEvents.TriggerMove(movementMagnitude);
+        // Direção de movimento global
+        Vector3 moveDirection = new Vector3(input.x, 0, input.y).normalized;
+
+        // Aplica o movimento no mundo
+        rb.AddForce(moveDirection * speed);
+
+        // Agora vamos calcular a direção local para animação
+        Vector3 localMove = transform.InverseTransformDirection(moveDirection); // Movimento no espaço local
+
+        // A conversão já foi feita, agora podemos calcular a direção da animação
+        Vector2 animationDirection = new Vector2(localMove.x, localMove.z); // Usando x para direita e z para frente/trás
+
+        // Enviar evento de animação para ser tratado
+        PlayerEvents.TriggerMove(animationDirection.x, animationDirection.y);
     }
 }

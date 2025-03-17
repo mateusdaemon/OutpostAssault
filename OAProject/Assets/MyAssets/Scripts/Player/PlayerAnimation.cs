@@ -6,19 +6,20 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEvents.OnMove += SetSpeedParam;
+        PlayerEvents.OnMove += SetMoveParams;
         PlayerEvents.OnShoot += SetShotTrigger;
     }
 
     private void OnDisable()
     {
-        PlayerEvents.OnMove -= SetSpeedParam;
+        PlayerEvents.OnMove -= SetMoveParams;
         PlayerEvents.OnShoot -= SetShotTrigger;
     }
 
-    private void SetSpeedParam(float speed)
+    private void SetMoveParams(float moveX, float moveY)
     {
-        animator.SetFloat("Speed", speed);
+        animator.SetFloat("Right", moveX);
+        animator.SetFloat("Forward", moveY);
     }
 
     private void SetShotTrigger(bool shoot)
