@@ -31,7 +31,7 @@ public class EnemySpaceship : Enemy
     {
         GameManager.Instance.AddXP(xpReward);
 
-        AudioSource.PlayClipAtPoint(dieSound, transform.position);
+        AudioManager.Instance.PlaySFX(dieSound);
 
         ParticleSystem particle = Instantiate(dieParticle, transform.position, Quaternion.identity);
         particle.Play();

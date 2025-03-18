@@ -6,6 +6,7 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private Transform gunPosition;
     [SerializeField] private float shootInterval;
     [SerializeField] private float shootSpeed;
+
     private bool canShoot = true;
     private float wantsShoot = 0;
 

@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        playerMove.Move(playerInput.MoveDirection);
+        // Se nao estiver atirando entao pode se mover
+        if (playerInput.Attack == 0) { playerMove.Move(playerInput.MoveDirection); }
         playerShooter.Shoot(playerOrientation.LookDirection, playerInput.Attack);
     }
 
