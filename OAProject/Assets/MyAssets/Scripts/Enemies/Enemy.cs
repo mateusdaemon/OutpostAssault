@@ -7,6 +7,15 @@ public abstract class Enemy : MonoBehaviour, IRunBase, ITakeDamage
     [SerializeField] protected float xpReward;
     protected Transform baseTarget;
 
+    [Header("Sounds")]
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip hitSound;
+    [SerializeField] protected AudioClip dieSound;
+
+    [Header("Particles")]
+    [SerializeField] protected ParticleSystem dieParticle;
+
+
     public void SetBaseTarget(Transform target)
     {
         baseTarget = target;

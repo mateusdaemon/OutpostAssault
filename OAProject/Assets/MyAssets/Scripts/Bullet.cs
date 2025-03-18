@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem hitParticle;
+
     private float damage = 0;
 
     private void Start()
@@ -19,6 +21,10 @@ public class Bullet : MonoBehaviour
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null)
         {
+            GetComponent<Rigidbody>().linearVelocity = Vector3.zero; // stop the bullet
+            Vector3 hitPoint = other.ClosestPoint(transform.position);
+            ParticleSystem particle = Instantiate(hitParticle, hitPoint, Quaternion.identity);
+            particle.Play();
             enemy.TakeDamage(damage);
             Destroy(gameObject);
         }

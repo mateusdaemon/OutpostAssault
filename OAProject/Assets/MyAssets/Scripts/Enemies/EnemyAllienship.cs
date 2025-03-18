@@ -33,12 +33,22 @@ public class EnemyAllienship : Enemy
         if (life <= 0)
         {
             Die();
+        } else
+        {
+            audioSource.clip = hitSound;
+            audioSource.Play();
         }
     }
 
     public override void Die()
     {
         GameManager.Instance.AddXP(xpReward);
+
+        AudioSource.PlayClipAtPoint(dieSound, transform.position);
+
+        ParticleSystem particle = Instantiate(dieParticle, transform.position, Quaternion.identity);
+        particle.Play();
+
         Destroy(gameObject);
     }
 }
