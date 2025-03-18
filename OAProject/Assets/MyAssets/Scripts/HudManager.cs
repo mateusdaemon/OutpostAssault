@@ -19,9 +19,15 @@ public class HudManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI atkSpeedTxt;
     [SerializeField] private TextMeshProUGUI atkDamageTxt;
     [SerializeField] private TextMeshProUGUI specialTxt;
+
+    [Header("Upgrade Hability Buttons")]
     [SerializeField] private Button attackSpeedButton;
     [SerializeField] private Button bulletDamageButton;
     [SerializeField] private Button specialDamageButton;
+
+    [Header("Filled Images")]
+    [SerializeField] private Image expBar;
+    [SerializeField] private Image lifeBar;
 
     [Header("Gameover UI")]
     [SerializeField] GameObject gameoverPanel;
@@ -39,9 +45,10 @@ public class HudManager : MonoBehaviour
         }
     }
 
-    public void SetBaseLife(int baseLives)
+    public void SetBaseLife(float baseLives)
     {
         lifeAmount.text = baseLives.ToString();
+        lifeBar.fillAmount = baseLives / GameManager.Instance.BaseMaxLife();
     }
 
     public void GameOver()
@@ -91,7 +98,8 @@ public class HudManager : MonoBehaviour
 
     public void UpdateXpAmount(float amount, float maxXp)
     {
-        xpAmountTxt.text = "XP: " + amount.ToString() + "/" + maxXp.ToString();
+        xpAmountTxt.text = amount.ToString() + "/" + maxXp.ToString();
+        expBar.fillAmount = amount / maxXp;
     }
 
     public void UpdateAtkSpeed(float amount)
@@ -111,7 +119,7 @@ public class HudManager : MonoBehaviour
 
     public void UpdatePointsAvailable(int upgradePoints)
     {
-        ptsAmountTxt.text = "Points: " + upgradePoints.ToString();
+        ptsAmountTxt.text = "+" + upgradePoints.ToString();
     }
 
     public void UpdatePlayerLevel(int level)

@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private int baseLives = 5;
+    private float baseLives = 5;
+    private float baseMaxLives = 5;
     private Player playerReference;
     private EnemySpawner enemySpawner;
     private Transform playerSpawnPosition;
@@ -68,8 +69,10 @@ public class GameManager : MonoBehaviour
     public void ReloadGame()
     {
         baseLives = 5;
+        playerStats.ResetPlayerStats();
         HudManager.Instance.SetBaseLife(baseLives);
         HudManager.Instance.ResetGame();
+        HudManager.Instance.UpdateXpAmount(playerStats.currentXP, playerStats.xpToNextLevel);
         playerReference.transform.position = playerSpawnPosition.position;
         playerReference.gameObject.SetActive(true);
         enemySpawner.ActivateSpawn();
@@ -120,5 +123,10 @@ public class GameManager : MonoBehaviour
         }
 
         playerReference.UpdatePlayerAtt(playerStats);
+    }
+
+    public float BaseMaxLife()
+    {
+        return baseMaxLives;
     }
 }

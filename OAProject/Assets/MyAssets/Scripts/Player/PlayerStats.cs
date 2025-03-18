@@ -57,6 +57,11 @@ public class PlayerStats : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
+        ResetPlayerStats();
+    }
+
+    public void ResetPlayerStats()
+    {
         level = 1;
         maxLevel = 10;
         currentXP = 0;
