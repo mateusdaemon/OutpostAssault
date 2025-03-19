@@ -69,10 +69,16 @@ public class GameManager : MonoBehaviour
     public void ReloadGame()
     {
         baseLives = 5;
+        upgradePoints = 0;
         playerStats.ResetPlayerStats();
+
         HudManager.Instance.SetBaseLife(baseLives);
         HudManager.Instance.ResetGame();
         HudManager.Instance.UpdateXpAmount(playerStats.currentXP, playerStats.xpToNextLevel);
+        HudManager.Instance.UpdatePlayerLevel(playerStats.level);
+        HudManager.Instance.HideUpgradeUI();
+        HudManager.Instance.UpdatePointsAvailable(upgradePoints);
+
         playerReference.transform.position = playerSpawnPosition.position;
         playerReference.gameObject.SetActive(true);
         enemySpawner.ActivateSpawn();

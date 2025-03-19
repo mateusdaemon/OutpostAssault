@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Enemy[] enemyPrefabs;
     [SerializeField] private Transform baseTarget;
     [SerializeField] private Collider spawnArea;
-    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private float spawnInterval = 3f;
     [SerializeField] private bool activeSpawn = false;
 
     private IEnumerator SpawnEnemies()
