@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7773d15ddb0fafe48a286ac8cefd9728
+guid: a56ac9061c3c20848a6e5df4f3cc6999
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Base Details
-    second: {fileID: 2100000, guid: 36efa2d98ece0bd4c9cf9b7c4e2117f5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BaseCenter_
-    second: {fileID: 2100000, guid: 35901889a54c09d4496c62abab2bd674, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rocket Color
-    second: {fileID: 2100000, guid: b3ab896c429e5a4499ac5e6a59520a0d, type: 2}
+      name: Soil Ground.001
+    second: {fileID: 2100000, guid: c58d069d26f7d5248b646a30b67caf21, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
