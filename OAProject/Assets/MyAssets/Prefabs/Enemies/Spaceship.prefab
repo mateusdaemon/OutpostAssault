@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 5
   speed: 5
-  xpReward: 5
+  xpReward: 10
   audioSource: {fileID: 7876743776691211043}
   hitSound: {fileID: 8300000, guid: 4dc4aa689dcc0954c939a49cc5e9633d, type: 3}
   dieSound: {fileID: 8300000, guid: 19802ce486a7cec4491128b270571b49, type: 3}

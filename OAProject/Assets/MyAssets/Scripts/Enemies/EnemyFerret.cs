@@ -26,6 +26,12 @@ public class EnemyFerret : Enemy
     public override void Die()
     {
         GameManager.Instance.AddXP(xpReward);
+
+        AudioManager.Instance.PlaySFX(dieSound);
+
+        ParticleSystem particle = Instantiate(dieParticle, transform.position, Quaternion.identity);
+        particle.Play();
+
         Destroy(gameObject);
     }
 }

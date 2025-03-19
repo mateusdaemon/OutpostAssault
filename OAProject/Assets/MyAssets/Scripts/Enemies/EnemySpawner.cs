@@ -25,7 +25,11 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 spawnPosition = GetRandomSpawnPosition();
         Enemy enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-        Enemy enemyInstance = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+        Vector3 directionToBase = (baseTarget.position - spawnPosition).normalized;
+        Quaternion rotationToBase = Quaternion.LookRotation(directionToBase);
+
+        Enemy enemyInstance = Instantiate(enemyPrefab, spawnPosition, rotationToBase);
 
         enemyInstance.SetBaseTarget(baseTarget);
     }
