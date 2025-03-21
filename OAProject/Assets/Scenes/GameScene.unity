@@ -2694,9 +2694,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 330585545}
     - target: {fileID: 5650130361612788018, guid: 9ed77bedaad379449be091e3f4c9fdde, type: 3}
-      propertyPath: damageFdb
+      propertyPath: fxReference
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 630130882}
     - target: {fileID: 5837090133444005580, guid: 9ed77bedaad379449be091e3f4c9fdde, type: 3}
       propertyPath: m_LocalPosition.x
       value: 127.560005
@@ -2737,6 +2737,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6186832091066210794, guid: 9ed77bedaad379449be091e3f4c9fdde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.33
+      objectReference: {fileID: 0}
     - target: {fileID: 7957642907617021745, guid: 9ed77bedaad379449be091e3f4c9fdde, type: 3}
       propertyPath: m_Name
       value: AstronaultProto
@@ -2746,6 +2750,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ed77bedaad379449be091e3f4c9fdde, type: 3}
+--- !u!4 &630130882 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6186832091066210794, guid: 9ed77bedaad379449be091e3f4c9fdde, type: 3}
+  m_PrefabInstance: {fileID: 630130881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &634546512
 GameObject:
   m_ObjectHideFlags: 0
