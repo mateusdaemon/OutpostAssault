@@ -28,6 +28,12 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            ParticleSystem particle = Instantiate(hitParticle, transform.position, Quaternion.identity);
+            particle.Play();
+        }
     }
 
     public void SetDamage(float newDamage)

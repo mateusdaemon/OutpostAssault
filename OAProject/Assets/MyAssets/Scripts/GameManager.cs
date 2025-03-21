@@ -135,4 +135,18 @@ public class GameManager : MonoBehaviour
     {
         return baseMaxLives;
     }
+
+    public void SpecialAttackStart()
+    {
+        HudManager.Instance.SetSpecialButton(false);
+        PlayerEvents.TriggerSpecial();
+        Invoke("SpecialAttackStop", playerStats.specialColdown);
+    }
+
+    public void SpecialAttackStop()
+    {
+        HudManager.Instance.SetSpecialButton(true);
+    }
+
+
 }

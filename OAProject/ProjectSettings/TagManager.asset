@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerSpawn
   - BaseTarget
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -1607,7 +1607,7 @@ GameObject:
   - component: {fileID: 1419920351}
   m_Layer: 3
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2132,6 +2132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2094739442}
   - component: {fileID: 2094739441}
+  - component: {fileID: 2094739443}
   m_Layer: 0
   m_Name: SpecialAttack
   m_TagString: Untagged
@@ -2158,7 +2159,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 82.03, y: 1, z: 74}
+  m_Size: {x: 82.03, y: 1, z: 10.12}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2094739442
 Transform:
@@ -2168,13 +2169,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094739440}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150.8, y: 23.4, z: 98.1}
+  m_LocalRotation: {x: -0, y: -0.000000014901161, z: -0, w: 1}
+  m_LocalPosition: {x: 143.9, y: 17.7, z: 89.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2094739443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094739440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4e7c17b33f59a4f8962839797575cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meteorPrefab: {fileID: 7039749438754943349, guid: c0fb6e8722afabf4c97d94f13bcb45c7, type: 3}
+  spawnArea: {fileID: 2094739441}
+  damage: 10
 --- !u!1001 &63828953702327335
 PrefabInstance:
   m_ObjectHideFlags: 0

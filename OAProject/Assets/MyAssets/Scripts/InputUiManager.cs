@@ -11,6 +11,9 @@ public class InputUiManager : MonoBehaviour
     [SerializeField] private Button bulletDamageButton;
     [SerializeField] private Button specialDamageButton;
 
+    [Header("Special Attack Button")]
+    [SerializeField] private Button specialAttackBtn;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,5 +29,8 @@ public class InputUiManager : MonoBehaviour
         attackSpeedButton.onClick.AddListener(() => GameManager.Instance.UpgradeAttribute("AttackSpeed"));
         bulletDamageButton.onClick.AddListener(() => GameManager.Instance.UpgradeAttribute("BulletDamage"));
         specialDamageButton.onClick.AddListener(() => GameManager.Instance.UpgradeAttribute("SpecialDamage"));
+
+        // Skill buttons
+        specialAttackBtn.onClick.AddListener(() => GameManager.Instance.SpecialAttackStart());
     }
 }

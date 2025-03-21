@@ -25,6 +25,9 @@ public class HudManager : MonoBehaviour
     [SerializeField] private Button bulletDamageButton;
     [SerializeField] private Button specialDamageButton;
 
+    [Header("Hability Buttons")]
+    [SerializeField] private Button specialAttackBtn;
+
     [Header("Filled Images")]
     [SerializeField] private Image expBar;
     [SerializeField] private Image lifeBar;
@@ -125,5 +128,10 @@ public class HudManager : MonoBehaviour
     public void UpdatePlayerLevel(int level)
     {
         playerLvlTxt.text = "LEVEL " + level.ToString();
+    }
+
+    public void SetSpecialButton(bool enable)
+    {
+        specialAttackBtn.enabled = enable;
     }
 }

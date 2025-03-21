@@ -5,6 +5,7 @@ public static class PlayerEvents
 {
     public static event Action<float, float> OnMove;
     public static event Action OnShoot;
+    public static event Action OnSpecial;
 
     public static void TriggerMove(float moveX, float moveY)
     {
@@ -14,5 +15,10 @@ public static class PlayerEvents
     public static void TriggerShoot()
     {
         OnShoot?.Invoke();
+    }
+
+    public static void TriggerSpecial()
+    {
+        OnSpecial?.Invoke();
     }
 }

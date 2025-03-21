@@ -15,6 +15,7 @@ public class PlayerStats : ScriptableObject, ISerializationCallbackReceiver
     public float maxBulletDamage = 12f;
     public float specialDuration = 5f;
     public float maxSpecialDuration = 11f;
+    public float specialColdown = 30f;
 
     public void AddXP(float amount)
     {
