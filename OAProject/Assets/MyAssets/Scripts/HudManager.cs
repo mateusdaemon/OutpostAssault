@@ -133,5 +133,15 @@ public class HudManager : MonoBehaviour
     public void SetSpecialButton(bool enable)
     {
         specialAttackBtn.enabled = enable;
+
+        if (!enable)
+        {
+            specialAttackBtn.GetComponent<Image>().fillAmount = 0;
+        }        
+    }
+
+    public void SetSpecialBtnAmount(float amount)
+    {
+        specialAttackBtn.GetComponent<Image>().fillAmount += amount;
     }
 }

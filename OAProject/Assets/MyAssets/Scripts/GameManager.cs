@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public PlayerStats playerStats;
 
     private int upgradePoints = 0;
+    private bool specialColdown = false;
 
     private void Awake()
     {
@@ -38,11 +39,19 @@ public class GameManager : MonoBehaviour
         playerSpawnPosition = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
     }
 
+    private void FixedUpdate()
+    {
+        if (specialColdown)
+        {
+            HudManager.Instance.SetSpecialBtnAmount(1.0f / GameManager.Instance.playerStats.specialColdown * Time.deltaTime);
+        }
+    }
 
     public void EnemyReachBase()
     {
         baseLives--;
         HudManager.Instance.SetBaseLife(baseLives);
+        PlayerEvents.TriggerPlayerDmg();
 
         if (baseLives <= 0)
         {
@@ -140,12 +149,15 @@ public class GameManager : MonoBehaviour
     {
         HudManager.Instance.SetSpecialButton(false);
         PlayerEvents.TriggerSpecial();
+        specialColdown = true;
         Invoke("SpecialAttackStop", playerStats.specialColdown);
     }
 
     public void SpecialAttackStop()
     {
         HudManager.Instance.SetSpecialButton(true);
+        HudManager.Instance.SetSpecialBtnAmount(1.0f);
+        specialColdown = true;
     }
 
 

@@ -18,7 +18,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colidiu");
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null)
         {
@@ -32,7 +31,6 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Colidiu com ground");
             ParticleSystem particle = Instantiate(hitParticle, transform.position, Quaternion.identity);
             particle.Play();
             Destroy(gameObject);
