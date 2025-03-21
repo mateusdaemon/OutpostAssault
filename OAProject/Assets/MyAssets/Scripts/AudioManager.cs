@@ -22,4 +22,10 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
     }
+
+    public void PlaySFXOneShot(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.PlayOneShot(clip);
+    }
 }

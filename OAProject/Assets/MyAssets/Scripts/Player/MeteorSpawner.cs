@@ -35,7 +35,8 @@ public class MeteorSpawner : MonoBehaviour
     private void SpawnMeteor()
     {
         Vector3 spawnPosition = GetRandomSpawnPosition();
-        Instantiate(meteorPrefab, spawnPosition, meteorPrefab.transform.rotation).SetDamage(damage);
+        Bullet meteor = Instantiate(meteorPrefab, spawnPosition, meteorPrefab.transform.rotation);
+        meteor.SetDamage(damage);
     }
 
     private Vector3 GetRandomSpawnPosition()

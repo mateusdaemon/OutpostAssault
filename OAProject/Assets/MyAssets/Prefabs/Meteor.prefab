@@ -9731,6 +9731,7 @@ GameObject:
   - component: {fileID: 5623521441319209858}
   - component: {fileID: 7039749438754943349}
   - component: {fileID: 7222385618721834410}
+  - component: {fileID: 9180675837148864111}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -9869,6 +9870,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9180675837148864111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748250439322226128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946c42551b9e56d4f89d56ab5e4cbf67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySound: {fileID: 8300000, guid: 19802ce486a7cec4491128b270571b49, type: 3}
 --- !u!1 &8989227777675565583
 GameObject:
   m_ObjectHideFlags: 0
