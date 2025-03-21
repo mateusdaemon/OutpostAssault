@@ -7,6 +7,9 @@ public class HudManager : MonoBehaviour
 {
     public static HudManager Instance { get; private set; }
 
+    [Header("Menu UI")]
+    [SerializeField] private GameObject menuPanel;
+
     [Header("Gameplay UI")]
     [SerializeField] GameObject gameplayPanel;
     [SerializeField] private TextMeshProUGUI lifeAmount;
@@ -64,6 +67,20 @@ public class HudManager : MonoBehaviour
     {
         gameplayPanel.SetActive(true);
         gameoverPanel.SetActive(false);
+
+        SetSpecialBtnAmount(1.0f);
+        SetSpecialButton(true);
+    }
+
+    public void SetMenuEnable(bool enable)
+    {
+        menuPanel.SetActive(false);
+
+        if (enable)
+        {
+            gameplayPanel.SetActive(false);
+            gameoverPanel.SetActive(false);
+        }
     }
 
     public void ShowUpgradeUI()

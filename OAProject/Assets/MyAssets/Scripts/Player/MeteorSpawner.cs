@@ -49,7 +49,7 @@ public class MeteorSpawner : MonoBehaviour
         );
     }
 
-    private void StopMeteorRain()
+    public void StopMeteorRain()
     {
         StopCoroutine(MeteorRain());
         rainMeteor = false;

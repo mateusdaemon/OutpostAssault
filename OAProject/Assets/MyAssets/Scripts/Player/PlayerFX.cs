@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class PlayerFX : MonoBehaviour
 {
-    [SerializeField] private Transform fxReference;
-    [SerializeField] private ParticleSystem damageFdb;
+    [SerializeField] private GameObject damageFdb;
 
     private void Start()
     {
@@ -12,6 +11,6 @@ public class PlayerFX : MonoBehaviour
 
     public void TakeDamageFdb()
     {
-        Instantiate(damageFdb, fxReference.position, Quaternion.identity);
+        damageFdb.SetActive(true);
     }
 }

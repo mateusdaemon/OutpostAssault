@@ -5,6 +5,8 @@ public class InputUiManager : MonoBehaviour
 {
     [Header("Gameover Buttons")]
     public Button playAgainBtn;
+    public Button playBtn;
+    public Button returnMenuBtn;
 
     [Header("Upgrade Skills Buttons")]
     [SerializeField] private Button attackSpeedButton;
@@ -24,6 +26,8 @@ public class InputUiManager : MonoBehaviour
     {
         // Menu Principal
         playAgainBtn.onClick.AddListener(() => GameManager.Instance.ReloadGame());
+        playBtn.onClick.AddListener(() => GameManager.Instance.PlayGame());
+        returnMenuBtn.onClick.AddListener(() => GameManager.Instance.ReturnMenu());
 
         // Upgrade skills
         attackSpeedButton.onClick.AddListener(() => GameManager.Instance.UpgradeAttribute("AttackSpeed"));

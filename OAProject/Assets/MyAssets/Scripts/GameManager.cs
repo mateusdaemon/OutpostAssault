@@ -32,11 +32,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        HudManager.Instance.SetBaseLife(baseLives);
-        playerReference = FindFirstObjectByType<Player>();
-        enemySpawner = FindFirstObjectByType<EnemySpawner>();
-        enemySpawner.ActivateSpawn();   
-        playerSpawnPosition = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
+        // if not in menu set basic stats for gameplay testing
+        if (SceneManager.GetActiveScene().name != "Menu")
+        {
+            HudManager.Instance.SetBaseLife(baseLives);
+            playerReference = FindFirstObjectByType<Player>();
+            enemySpawner = FindFirstObjectByType<EnemySpawner>();
+            enemySpawner.ActivateSpawn();   
+            playerSpawnPosition = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
+        }
     }
 
     private void FixedUpdate()
@@ -75,6 +79,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("GameScene");
+        HudManager.Instance.SetMenuEnable(false);
+        HudManager.Instance.ResetGame();
+        HudManager.Instance.SetBaseLife(baseLives);
+        playerReference = FindFirstObjectByType<Player>();
+        enemySpawner = FindFirstObjectByType<EnemySpawner>();
+        enemySpawner.ActivateSpawn();
+        playerSpawnPosition = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
+    }
+
     public void ReloadGame()
     {
         baseLives = 5;
@@ -88,9 +104,18 @@ public class GameManager : MonoBehaviour
         HudManager.Instance.HideUpgradeUI();
         HudManager.Instance.UpdatePointsAvailable(upgradePoints);
 
+        GameObject.FindGameObjectWithTag("MeteorSpawner").GetComponent<MeteorSpawner>().StopMeteorRain();
+        CancelInvoke(nameof(SpecialAttackStop));
+
         playerReference.transform.position = playerSpawnPosition.position;
         playerReference.gameObject.SetActive(true);
         enemySpawner.ActivateSpawn();
+    }
+
+    public void ReturnMenu()
+    {
+        SceneManager.LoadScene("Menu");
+        HudManager.Instance.SetMenuEnable(true);
     }
 
     public void PlayerLevelUp()
@@ -157,7 +182,7 @@ public class GameManager : MonoBehaviour
     {
         HudManager.Instance.SetSpecialButton(true);
         HudManager.Instance.SetSpecialBtnAmount(1.0f);
-        specialColdown = true;
+        specialColdown = false;
     }
 
 
