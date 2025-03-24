@@ -85,6 +85,11 @@ public class GameManager : MonoBehaviour
         HudManager.Instance.SetMenuEnable(false);
         HudManager.Instance.ResetGame();
         HudManager.Instance.SetBaseLife(baseLives);
+        Invoke(nameof(LoadReferences), 3.0f);
+    }
+
+    private void LoadReferences()
+    {
         playerReference = FindFirstObjectByType<Player>();
         enemySpawner = FindFirstObjectByType<EnemySpawner>();
         enemySpawner.ActivateSpawn();

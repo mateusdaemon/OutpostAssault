@@ -74,7 +74,7 @@ public class HudManager : MonoBehaviour
 
     public void SetMenuEnable(bool enable)
     {
-        menuPanel.SetActive(false);
+        menuPanel.SetActive(enable);
 
         if (enable)
         {
