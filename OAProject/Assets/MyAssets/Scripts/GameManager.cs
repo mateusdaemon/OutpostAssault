@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("entrei no start");
         // if not in menu set basic stats for gameplay testing
         if (SceneManager.GetActiveScene().name != "Menu")
         {
@@ -82,9 +83,20 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("GameScene");
+
+        baseLives = 5;
+        upgradePoints = 0;
+
         HudManager.Instance.SetMenuEnable(false);
         HudManager.Instance.ResetGame();
         HudManager.Instance.SetBaseLife(baseLives);
+
+        playerStats.ResetPlayerStats();
+        HudManager.Instance.UpdateXpAmount(playerStats.currentXP, playerStats.xpToNextLevel);
+        HudManager.Instance.UpdatePlayerLevel(playerStats.level);
+        HudManager.Instance.HideUpgradeUI();
+        HudManager.Instance.UpdatePointsAvailable(upgradePoints);
+
         Invoke(nameof(LoadReferences), 3.0f);
     }
 
