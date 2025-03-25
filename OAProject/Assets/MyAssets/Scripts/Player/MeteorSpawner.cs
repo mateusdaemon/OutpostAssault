@@ -55,4 +55,8 @@ public class MeteorSpawner : MonoBehaviour
         rainMeteor = false;
     }
 
+    private void OnDisable()
+    {
+        PlayerEvents.OnSpecial -= StartMeteorRain;
+    }
 }

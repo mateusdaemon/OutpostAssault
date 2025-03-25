@@ -63,10 +63,17 @@ public class HudManager : MonoBehaviour
         gameoverPanel.SetActive(true);
     }
 
-    public void ResetGame()
+    public void ResetGame(PlayerStats playerStats)
     {
+        UpdateXpAmount(playerStats.currentXP, playerStats.xpToNextLevel);
+        UpdatePlayerLevel(playerStats.level);
+        HideUpgradeUI();
+        UpdatePointsAvailable(0);
+        SetBaseLife(5);
+
         gameplayPanel.SetActive(true);
         gameoverPanel.SetActive(false);
+        menuPanel.SetActive(false);
 
         SetSpecialBtnAmount(1.0f);
         SetSpecialButton(true);

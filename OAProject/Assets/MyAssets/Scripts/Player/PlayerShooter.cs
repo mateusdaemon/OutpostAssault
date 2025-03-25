@@ -13,7 +13,6 @@ public class PlayerShooter : MonoBehaviour
     public void Shoot(Vector3 direction, float attack)
     {
         wantsShoot = attack;
-
         if (canShoot && wantsShoot != 0)
         {
             canShoot = false;

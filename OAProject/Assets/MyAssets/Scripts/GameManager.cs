@@ -32,15 +32,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("entrei no start");
-        // if not in menu set basic stats for gameplay testing
         if (SceneManager.GetActiveScene().name != "Menu")
         {
-            HudManager.Instance.SetBaseLife(baseLives);
-            playerReference = FindFirstObjectByType<Player>();
-            enemySpawner = FindFirstObjectByType<EnemySpawner>();
-            enemySpawner.ActivateSpawn();   
-            playerSpawnPosition = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
+            LoadReferences();
         }
     }
 
@@ -83,29 +77,42 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("GameScene");
+        SceneManager.sceneLoaded += OnGameSceneLoaded;
+    }
 
+    private void OnGameSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "GameScene")
+        {
+            SceneManager.sceneLoaded -= OnGameSceneLoaded;
+            HudManager.Instance.SetMenuEnable(false);
+            ResetGameData();
+            LoadReferences();
+        }
+    }
+
+    private void ResetGameData()
+    {
         baseLives = 5;
         upgradePoints = 0;
-
-        HudManager.Instance.SetMenuEnable(false);
-        HudManager.Instance.ResetGame();
-        HudManager.Instance.SetBaseLife(baseLives);
-
         playerStats.ResetPlayerStats();
-        HudManager.Instance.UpdateXpAmount(playerStats.currentXP, playerStats.xpToNextLevel);
-        HudManager.Instance.UpdatePlayerLevel(playerStats.level);
-        HudManager.Instance.HideUpgradeUI();
-        HudManager.Instance.UpdatePointsAvailable(upgradePoints);
-
-        Invoke(nameof(LoadReferences), 3.0f);
     }
 
     private void LoadReferences()
     {
         playerReference = FindFirstObjectByType<Player>();
         enemySpawner = FindFirstObjectByType<EnemySpawner>();
-        enemySpawner.ActivateSpawn();
-        playerSpawnPosition = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
+        playerSpawnPosition = GameObject.FindGameObjectWithTag("PlayerSpawn")?.transform;
+
+        if (enemySpawner != null)
+        {
+            enemySpawner.ActivateSpawn();
+        }
+
+        if (HudManager.Instance != null)
+        {
+            HudManager.Instance.ResetGame(playerStats);
+        }
     }
 
     public void ReloadGame()
@@ -114,17 +121,13 @@ public class GameManager : MonoBehaviour
         upgradePoints = 0;
         playerStats.ResetPlayerStats();
 
-        HudManager.Instance.SetBaseLife(baseLives);
-        HudManager.Instance.ResetGame();
-        HudManager.Instance.UpdateXpAmount(playerStats.currentXP, playerStats.xpToNextLevel);
-        HudManager.Instance.UpdatePlayerLevel(playerStats.level);
-        HudManager.Instance.HideUpgradeUI();
-        HudManager.Instance.UpdatePointsAvailable(upgradePoints);
+        HudManager.Instance.ResetGame(playerStats);
 
         GameObject.FindGameObjectWithTag("MeteorSpawner").GetComponent<MeteorSpawner>().StopMeteorRain();
         CancelInvoke(nameof(SpecialAttackStop));
 
         playerReference.transform.position = playerSpawnPosition.position;
+        playerReference.UpdatePlayerAtt(playerStats);
         playerReference.gameObject.SetActive(true);
         enemySpawner.ActivateSpawn();
     }
@@ -132,7 +135,20 @@ public class GameManager : MonoBehaviour
     public void ReturnMenu()
     {
         SceneManager.LoadScene("Menu");
-        HudManager.Instance.SetMenuEnable(true);
+        SceneManager.sceneLoaded += OnMenuLoaded;
+    }
+
+    private void OnMenuLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Menu")
+        {
+            SceneManager.sceneLoaded -= OnMenuLoaded;
+            ResetGameData();
+            playerReference = null;
+            enemySpawner = null;
+            playerSpawnPosition = null;
+            HudManager.Instance.SetMenuEnable(true);
+        }
     }
 
     public void PlayerLevelUp()

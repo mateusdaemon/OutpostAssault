@@ -13,4 +13,10 @@ public class PlayerFX : MonoBehaviour
     {
         damageFdb.SetActive(true);
     }
+
+    private void OnDisable()
+    {
+        damageFdb.SetActive(false);
+        PlayerEvents.OnTakeDamage -= TakeDamageFdb;
+    }
 }

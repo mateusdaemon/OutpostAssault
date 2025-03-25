@@ -28,4 +28,9 @@ public class PlayerSounds : MonoBehaviour
     {
         
     }
+
+    private void OnDisable()
+    {
+        PlayerEvents.OnShoot -= PlayShootSound;
+    }
 }
