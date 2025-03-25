@@ -155,6 +155,8 @@ public class GameManager : MonoBehaviour
     {
         upgradePoints++;
 
+        PlayerEvents.TriggerLevelUp();
+
         HudManager.Instance.UpdatePointsAvailable(upgradePoints);
         HudManager.Instance.ShowUpgradeUI();
         

@@ -6,17 +6,18 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shootClip;
     [SerializeField] private AudioClip hitTakenClip;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private AudioClip levelUpClip;
 
     private void OnEnable()
     {
         PlayerEvents.OnShoot += PlayShootSound;
         PlayerEvents.OnTakeDamage += PlayDamageSound;
+        PlayerEvents.OnLevelUp += PlayLevelUpSound;
+    }
+
+    private void PlayLevelUpSound()
+    {
+        audioSource.PlayOneShot(levelUpClip);
     }
 
     private void PlayDamageSound()
@@ -27,12 +28,6 @@ public class PlayerSounds : MonoBehaviour
     private void PlayShootSound()
     {
         audioSource.PlayOneShot(shootClip);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnDisable()
