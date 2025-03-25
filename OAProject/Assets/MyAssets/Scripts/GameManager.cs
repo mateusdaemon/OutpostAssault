@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         HudManager.Instance.GameOver();
+        enemySpawner.SetSpawnInterval(3.0f);
         enemySpawner.StopSpawn();
         ClearAllEnemies();
         playerReference.gameObject.SetActive(false);
