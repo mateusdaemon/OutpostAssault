@@ -125,23 +125,23 @@ public class HudManager : MonoBehaviour
 
     public void UpdateXpAmount(float amount, float maxXp)
     {
-        xpAmountTxt.text = amount.ToString() + "/" + maxXp.ToString();
+        xpAmountTxt.text = amount.ToString("F0") + "/" + maxXp.ToString("F0");
         expBar.fillAmount = amount / maxXp;
     }
 
     public void UpdateAtkSpeed(float amount)
     {
-        atkSpeedTxt.text = "Atk Spd: " + amount.ToString();
+        atkSpeedTxt.text = amount.ToString("F0");
     }
 
     public void UpdateAtkDamage(float amount)
     {
-        atkDamageTxt.text = "Atk Dmg: " + amount.ToString();
+        atkDamageTxt.text = amount.ToString("F0");
     }
 
     public void UpdateSpecialDuration(float amount)
     {
-        specialTxt.text = "Special Duration: " + amount.ToString();
+        specialTxt.text = amount.ToString("F0");
     }
 
     public void UpdatePointsAvailable(int upgradePoints)
