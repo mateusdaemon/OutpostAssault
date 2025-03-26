@@ -3925,7 +3925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96673501ebdee849802eb8e81a1787f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUpFdb: {fileID: 7177991128484655658, guid: 59a35ab9f68edff40b6e5332bed330f5, type: 3}
+  levelUpFdb: {fileID: 8791802859067835849, guid: ae07f2a45f14a82428409cfe410e6002, type: 3}
   levelUpPosRef: {fileID: 2046798818765689569}
   damageFdb: {fileID: 6855314210357232282, guid: 7c2a9b83b809a0848915fabd9596b68b, type: 3}
   damagePosRef: {fileID: 2046798818765689569}

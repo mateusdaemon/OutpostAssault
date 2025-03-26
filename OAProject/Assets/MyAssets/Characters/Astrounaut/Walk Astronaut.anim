@@ -4442,7 +4442,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -157.697, y: 4.330002, z: 107.136}
+        value: {x: -162.983, y: 3.3470001, z: 107.746}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -4451,7 +4451,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1
-        value: {x: -157.697, y: 4.330002, z: 107.136}
+        value: {x: -160.498, y: 5.244995, z: 106.809}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -4844,7 +4844,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.005, y: 0.141, z: 0.035}
+        value: {x: -0.01, y: 0.135, z: 0.034}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -6084,6 +6084,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
+      path: 2791819727
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
       path: 2257317975
       attribute: 2
       script: {fileID: 0}
@@ -6283,10 +6292,10 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 2791819727
-      attribute: 1
+      attribute: 4
       script: {fileID: 0}
       typeID: 4
-      customType: 0
+      customType: 4
       isPPtrCurve: 0
       isIntCurve: 0
       isSerializeReferenceCurve: 0
@@ -6557,15 +6566,6 @@ AnimationClip:
       script: {fileID: 0}
       typeID: 4
       customType: 0
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 2791819727
-      attribute: 4
-      script: {fileID: 0}
-      typeID: 4
-      customType: 4
       isPPtrCurve: 0
       isIntCurve: 0
       isSerializeReferenceCurve: 0
@@ -31224,7 +31224,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.005
+        value: -0.01
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31254,7 +31254,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.141
+        value: 0.135
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31284,7 +31284,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.035
+        value: 0.034
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31314,7 +31314,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -157.697
+        value: -162.983
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31323,7 +31323,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: -157.697
+        value: -160.498
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31344,7 +31344,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 4.330002
+        value: 3.3470001
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31353,7 +31353,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 4.330002
+        value: 5.244995
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31374,7 +31374,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 107.136
+        value: 107.746
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31383,7 +31383,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 107.136
+        value: 106.809
         inSlope: 0
         outSlope: 0
         tangentMode: 136
