@@ -70,6 +70,7 @@ public class HudManager : MonoBehaviour
         HideUpgradeUI();
         UpdatePointsAvailable(0);
         SetBaseLife(5);
+        SetAttributeValues(playerStats);
 
         gameplayPanel.SetActive(true);
         gameoverPanel.SetActive(false);
@@ -128,6 +129,13 @@ public class HudManager : MonoBehaviour
         xpAmountTxt.text = amount.ToString("F0") + "/" + maxXp.ToString("F0");
         expBar.fillAmount = amount / maxXp;
     }
+
+    public void SetAttributeValues(PlayerStats playerStats)
+    {
+        UpdateAtkSpeed(playerStats.attackSpeed);
+        UpdateAtkDamage(playerStats.bulletDamage);
+        UpdateSpecialDuration(playerStats.specialDuration);
+    } 
 
     public void UpdateAtkSpeed(float amount)
     {
