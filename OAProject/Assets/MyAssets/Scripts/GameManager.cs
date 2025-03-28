@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour
         playerReference.transform.position = playerSpawnPosition.position;
         playerReference.UpdatePlayerAtt(playerStats);
         playerReference.gameObject.SetActive(true);
+        enemySpawner.SetSpawnInterval(3.0f);
         enemySpawner.ActivateSpawn();
     }
 
